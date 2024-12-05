@@ -50,7 +50,7 @@ const Banner = () => {
                         <div className="absolute inset-0 bg-black/50 flex flex-col items-start justify-center p-8 space-y-4">
                             <h1 className="text-4xl md:text-6xl font-bold text-white">{slide.title}</h1>
                             <p className="text-lg md:text-2xl text-white">{slide.subtext}</p>
-                            <button className="btn btn-primary">Learn More</button>
+                            <button className="btn btn-accent">Learn More</button>
                         </div>
                     </div>
                 ))}
