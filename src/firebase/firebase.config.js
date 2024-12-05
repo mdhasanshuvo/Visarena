@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBcBHi9QeZwWvvjCtCUgvj7W6WqC3m2M1w",
-    authDomain: "visarena-auth.firebaseapp.com",
-    projectId: "visarena-auth",
-    storageBucket: "visarena-auth.firebasestorage.app",
-    messagingSenderId: "200121334179",
-    appId: "1:200121334179:web:0485569a73332f9129c216"
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId: import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId: import.meta.env.VITE_messagingSenderId,
+    appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
