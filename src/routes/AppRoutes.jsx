@@ -4,6 +4,7 @@ import Home from '../pages/Home';
 import AuthLayout from '../LayoutComponent/AuthLayout';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
+import ErrorPage from '../pages/ErrorPage';
 
 const AppRoutes = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const AppRoutes = createBrowserRouter([
       //   element: <ForgotPassword></ForgotPassword>
       // },
     ]
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>
   },
 ]);
 
