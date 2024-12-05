@@ -22,8 +22,17 @@ const MyAddedVisa = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                // Add the logic to delete the visa from the database
-                Swal.fire('Deleted!', 'The visa has been deleted.', 'success');
+                
+                fetch(`http://localhost:5000/visarena/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire('Deleted!', 'The visa has been deleted.', 'success');
+                        }
+                    })
             }
         });
     };
@@ -44,7 +53,7 @@ const MyAddedVisa = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        
+
     };
 
     return (

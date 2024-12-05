@@ -19,7 +19,6 @@ const Navbar = () => {
         }
     </>
     const { pathname } = useLocation();
-    console.log(pathname);
     return (
         <div className={`bg-white border ${pathname === '/auth/login' || pathname === '/auth/register' ? 'h-36' : ''}`}
         >
