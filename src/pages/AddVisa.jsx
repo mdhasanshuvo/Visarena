@@ -69,11 +69,10 @@ const AddVisa = () => {
                         });
                     }
                 })
-
-            // After successful save:
-
-
-            // navigate('/my-added-visas'); // Redirect to "My Added Visas" page (adjust the route as needed)
+                
+                // navigate('/');
+                
+             // Redirect to "My Added Visas" page (adjust the route as needed)
         } catch (error) {
             Swal.fire({
                 icon: 'error',

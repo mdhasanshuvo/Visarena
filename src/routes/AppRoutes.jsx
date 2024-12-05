@@ -6,11 +6,17 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ErrorPage from '../pages/ErrorPage';
 import AddVisa from '../pages/AddVisa';
+import AllVisa from '../pages/AllVisa';
 
 const AppRoutes = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>
+  },
+  {
+    path: '/allVisa',
+    element: <AllVisa></AllVisa>,
+    loader: () => fetch('http://localhost:5000/visarena'),
   },
   {
     path: '/addVisa',
