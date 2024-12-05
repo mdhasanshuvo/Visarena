@@ -5,11 +5,16 @@ import AuthLayout from '../LayoutComponent/AuthLayout';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import ErrorPage from '../pages/ErrorPage';
+import AddVisa from '../pages/AddVisa';
 
 const AppRoutes = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>
+  },
+  {
+    path: '/addVisa',
+    element : <AddVisa></AddVisa>
   },
   {
     path: '/auth',
@@ -23,10 +28,6 @@ const AppRoutes = createBrowserRouter([
         path: '/auth/register',
         element: <Register></Register>
       },
-      // {
-      //   path: "/auth/forgot-password",
-      //   element: <ForgotPassword></ForgotPassword>
-      // },
     ]
   },
   {

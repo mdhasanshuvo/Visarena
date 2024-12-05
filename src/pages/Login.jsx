@@ -83,12 +83,11 @@ const Login = () => {
                             )
                         } */}
 
-                        <Link
-                            to={`/auth/forgot-password`}
+                        <a
                             className="label-text-alt link link-hover"
                         >
                             Forgot password?
-                        </Link>
+                        </a>
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-neutral rounded-none">Login</button>
