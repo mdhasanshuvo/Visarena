@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const Register = () => {
+
+    const { signUp, setUser, updateUser, googleAuth } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const onClickForGoogle = () => {
+        googleAuth()
+            .then(result => {
+                const userFromGoogle = result.user;
+                console.log(userFromGoogle);
+                setUser(userFromGoogle);
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.log(error.message);
+                // showErrorToast(error.message);
+            });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,37 +42,37 @@ const Register = () => {
         //     password: ``
         // })
 
-        // if (!hasUppercase || !hasLowercase || !isLongEnough) {
-        //     setErrorMessage({
-        //         ...errorMessage,
-        //         password: `Password must contain at least 6 characters, including uppercase and lowercase letters.`
-        //     });
-        //     showErrorToast("Password validation failed. Please check your password!"); // Show toast error for password validation
-        //     return;
-        // }
+        if (!hasUppercase || !hasLowercase || !isLongEnough) {
+            // setErrorMessage({
+            //     ...errorMessage,
+            //     password: `Password must contain at least 6 characters, including uppercase and lowercase letters.`
+            // });
+            // showErrorToast("Password validation failed. Please check your password!"); // Show toast error for password validation
+            // return;
+        }
 
-        // signUp(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         setUser(user);
+        signUp(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setUser(user);
 
-        //         updateUser({
-        //             displayName: name,
-        //             photoURL: photo,
-        //         })
-        //             .then(() => {
-        //                 navigate("/");
-        //             })
-        //             .catch(error => {
-        //                 console.log(error);
-        //                 showErrorToast(error.message);  
-        //             });
-        //     })
-        //     .catch(error => {
-        //         console.log(error.message);
-        //         showErrorToast(error.message);
-        //     });
+                updateUser({
+                    displayName: name,
+                    photoURL: photo,
+                })
+                    .then(() => {
+                        navigate("/");
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        // showErrorToast(error.message);  
+                    });
+            })
+            .catch(error => {
+                console.log(error.message);
+                // showErrorToast(error.message);
+            });
     };
 
 
@@ -115,8 +133,8 @@ const Register = () => {
 
                     <div className="text-center space-y-3">
                         <h2 className="text-center mt-10">Or, Register with</h2>
-                        <button className="btn" 
-                        // onClick={onClickForGoogle}
+                        <button className="btn"
+                        onClick={onClickForGoogle}
                         >
                             <FaGoogle></FaGoogle>
                             <span className="text-lg font-light">Google</span>
