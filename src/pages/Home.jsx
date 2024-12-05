@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/Navbar';
 import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import LatestVisas from '../components/LatestVisas';
+import Footer from '../components/Footer';
 
 const Home = () => {
     return (
@@ -19,6 +19,11 @@ const Home = () => {
                 <LatestVisas></LatestVisas>
 
             </main>
+
+            {/* footer section */}
+            <footer>
+                <Footer></Footer>
+            </footer>
 
         </div>
     );

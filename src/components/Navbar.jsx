@@ -1,9 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const lists = <>
         <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/addvisa'>Add Visa</NavLink></li>
+        <li><NavLink to='/myaddedvisa'>My Added Visas</NavLink></li>
+        <li><NavLink to='/appliedvisa'>My Visa Applications</NavLink></li>
         <li>
             <details>
                 <summary>All Visas</summary>
@@ -14,9 +17,6 @@ const Navbar = () => {
                 </ul>
             </details>
         </li>
-        <li><NavLink to='/addvisa'>Add Visa</NavLink></li>
-        <li><NavLink to='/myaddedvisa'>My Added Visas</NavLink></li>
-        <li><NavLink to='/appliedvisa'>My Visa Applications</NavLink></li>
     </>
     return (
         <div>
@@ -51,7 +51,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Login / Register</a>
+                    <Link to='/auth/login' className="btn">Login / Register</Link >
                 </div>
             </div>
         </div>
