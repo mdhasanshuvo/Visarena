@@ -4,9 +4,9 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
     const lists = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/addvisa'>Add Visa</NavLink></li>
-        <li><NavLink to='/myaddedvisa'>My Added Visas</NavLink></li>
-        <li><NavLink to='/appliedvisa'>My Visa Applications</NavLink></li>
+        <li><NavLink to='/addVisa'>Add Visa</NavLink></li>
+        <li><NavLink to='/myAddedVisa'>My Added Visas</NavLink></li>
+        <li><NavLink to='/appliedVisa'>My Visa Applications</NavLink></li>
         <li>
             <details>
                 <summary>All Visas</summary>
