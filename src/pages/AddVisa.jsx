@@ -67,6 +67,7 @@ const AddVisa = () => {
                             showConfirmButton: false,
                             timer: 2000,
                         });
+
                     }
                 })
                 
@@ -201,7 +202,7 @@ const AddVisa = () => {
 
                         {/* Fee */}
                         <div>
-                            <label className="block text-lg font-medium mb-2">Visa Fee</label>
+                            <label className="block text-lg font-medium mb-2">Visa Fee ($)</label>
                             <input
                                 type="number"
                                 name="fee"

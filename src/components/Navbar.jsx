@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
@@ -18,9 +18,12 @@ const Navbar = () => {
             </>
         }
     </>
+    const { pathname } = useLocation();
+    console.log(pathname);
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className={`bg-white border ${pathname === '/auth/login' || pathname === '/auth/register' ? 'h-36' : ''}`}
+        >
+            <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
