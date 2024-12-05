@@ -19,7 +19,7 @@ const Navbar = () => {
         <li><NavLink to='/appliedvisa'>My Visa Applications</NavLink></li>
     </>
     return (
-        <div className='container mx-auto'>
+        <div>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
