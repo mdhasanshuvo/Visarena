@@ -6,7 +6,8 @@ import Swal from 'sweetalert2';
 import { useLoaderData } from 'react-router-dom';
 
 const MyAddedVisa = () => {
-    const visas = useLoaderData();
+    const loadedVisas = useLoaderData();
+    const [visas, setVisas] = useState(loadedVisas);
     const { user } = useContext(AuthContext);
     const [modalData, setModalData] = useState(null);
     const [updatedVisa, setUpdatedVisa] = useState({});
@@ -32,6 +33,8 @@ const MyAddedVisa = () => {
                         if (data.deletedCount > 0) {
                             Swal.fire('Deleted!', 'The visa has been deleted.', 'success');
                         }
+                        const remaining = visas.filter(visa => visa._id !== id);
+                        setVisas(remaining);
                     })
             }
         });
@@ -53,12 +56,33 @@ const MyAddedVisa = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Call your backend to update the visa data
-        // Assume the API request is successful and close the modal
-        Swal.fire('Updated!', 'Your visa information has been updated.', 'success');
-        setModalData(null);  // Close modal after update
-
+        fetch(`http://localhost:5000/visarena/${modalData._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedVisa),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.modifiedCount > 0) {
+                    Swal.fire('Updated!', 'Your visa information has been updated.', 'success');
+                    const updatedVisasList = visas.map((visa) =>
+                        visa._id === modalData._id ? { ...visa, ...updatedVisa } : visa
+                    );
+                    setVisas(updatedVisasList);
+                    setModalData(null);
+                } else {
+                    Swal.fire('Error!', 'Failed to update visa information.', 'error');
+                }
+            })
+            .catch((error) => {
+                console.error('Error updating visa:', error);
+                Swal.fire('Error!', 'An unexpected error occurred.', 'error');
+            });
     };
+
+
 
     return (
         <div>
