@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+
+    const { user, logout } = useContext(AuthContext);
+
+
     const lists = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allVisa'>All Visa</NavLink></li>
-        <li><NavLink to='/addVisa'>Add Visa</NavLink></li>
-        <li><NavLink to='/myAddedVisa'>My Added Visas</NavLink></li>
-        <li><NavLink to='/appliedVisa'>My Visa Applications</NavLink></li>
+        {
+            user && <>
+                <li><NavLink to='/addVisa'>Add Visa</NavLink></li>
+                <li><NavLink to='/myAddedVisa'>My Added Visas</NavLink></li>
+                <li><NavLink to='/appliedVisa'>My Visa Applications</NavLink></li>
+            </>
+        }
     </>
     return (
         <div>
@@ -42,7 +51,16 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/auth/login' className="btn">Login / Register</Link >
+                    {
+                        user ?
+                            <div className="flex items-center gap-3 justify-center">
+                                <div>
+                                    <img className='w-7 sm:w-9 rounded-full ' src={user?.photoURL} alt="" />
+                                </div>
+                                <Link onClick={logout} to='/' className='btn btn-primary sm:px-5 text-white  rounded-lg min-h-9 h-9 text-sm'>Log out</Link>
+                            </div> :
+                            <Link to='/auth/login' className='btn btn-primary sm:px-5 text-white  rounded-lg min-h-9 h-9 text-sm'>Login / Register</Link>
+                    }
                 </div>
             </div>
         </div>
