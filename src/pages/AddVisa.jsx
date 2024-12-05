@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddVisa = () => {
     const navigate = useNavigate();
+    const { user } = useContext(AuthContext); // Get the current user
     const [visaData, setVisaData] = useState({
         countryImage: '',
         countryName: '',
@@ -37,28 +39,56 @@ const AddVisa = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Save data to the database (Firebase/MongoDB backend implementation required here)
-        // After successful save:
-        Swal.fire({
-            icon: 'success',
-            title: 'Visa added successfully!',
-            showConfirmButton: false,
-            timer: 2000,
-        });
+        // Add user email to the visa data
+        const newVisaData = {
+            ...visaData,
+            userEmail: user.email, // Add user's email to the form data
+        };
 
-        navigate('/all-visas'); // Redirect to "All Visas" page
+        try {
+            // Save newVisa to the database 
+            fetch('http://localhost:5000/visarena', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newVisaData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId > 0) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Visa added successfully!',
+                            showConfirmButton: false,
+                            timer: 2000,
+                        });
+                    }
+                })
 
-        console.log(visaData);
+            // After successful save:
+
+
+            // navigate('/my-added-visas'); // Redirect to "My Added Visas" page (adjust the route as needed)
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Failed to add visa!',
+                text: error.message,
+            });
+        }
+
+        console.log(newVisaData);
     };
 
     return (
         <div>
-            {/* header section */}
             <header>
-                <Navbar></Navbar>
+                <Navbar />
             </header>
 
             <div className="min-h-screen bg-gray-100 py-10">
@@ -222,9 +252,8 @@ const AddVisa = () => {
                 </div>
             </div>
 
-            {/* footer section */}
             <footer>
-                <Footer></Footer>
+                <Footer />
             </footer>
         </div>
     );
