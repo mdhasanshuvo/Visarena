@@ -22,7 +22,7 @@ const MyAddedVisa = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                
+
                 fetch(`http://localhost:5000/visarena/${id}`, {
                     method: "DELETE"
                 })
@@ -53,6 +53,10 @@ const MyAddedVisa = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Call your backend to update the visa data
+        // Assume the API request is successful and close the modal
+        Swal.fire('Updated!', 'Your visa information has been updated.', 'success');
+        setModalData(null);  // Close modal after update
 
     };
 

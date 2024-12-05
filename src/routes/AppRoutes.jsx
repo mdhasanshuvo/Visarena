@@ -8,6 +8,7 @@ import ErrorPage from '../pages/ErrorPage';
 import AddVisa from '../pages/AddVisa';
 import AllVisa from '../pages/AllVisa';
 import MyAddedVisa from '../pages/MyAddedVisa';
+import VisaDetails from '../pages/VisaDetails';
 
 const AppRoutes = createBrowserRouter([
   {
@@ -20,12 +21,20 @@ const AppRoutes = createBrowserRouter([
     loader: () => fetch('http://localhost:5000/visarena'),
   },
   {
+    path: '/allVisa/:id',
+    element: <VisaDetails></VisaDetails>,
+    loader: async ({ params }) => {
+      const response = await fetch(`http://localhost:5000/visarena/${params.id}`);
+      return response.json();
+    },
+  },
+  {
     path: '/addVisa',
-    element : <AddVisa></AddVisa>,
+    element: <AddVisa></AddVisa>,
   },
   {
     path: '/myAddedVisa',
-    element : <MyAddedVisa></MyAddedVisa>,
+    element: <MyAddedVisa></MyAddedVisa>,
     loader: () => fetch('http://localhost:5000/visarena'),
   },
   {

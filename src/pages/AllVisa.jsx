@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -23,13 +23,12 @@ const AllVisa = () => {
                                 <p className="text-sm text-gray-600">Type: {visa.visaType}</p>
                                 <p className="text-sm text-gray-600">Fee: ${visa.fee}</p>
                                 <p className="text-sm text-gray-600">Validity: {visa.validity}</p>
-                                <p className="text-sm text-gray-600">Method: {visa.applicationMethod}</p>
-                                <button
+                                <Link
+                                    to={`/allVisa/${visa._id}`}
                                     className="btn btn-primary mt-4 w-full"
-                                    onClick={() => window.location.href = `/visa-details/${visa._id}`}
                                 >
                                     See Details
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     ))}
