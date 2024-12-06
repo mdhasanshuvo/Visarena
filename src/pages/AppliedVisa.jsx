@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AppliedVisa = () => {
+    const loadedVisas = useLoaderData();
+    const [visas, setVisas] = useState(loadedVisas);
+    const { user } = useContext(AuthContext);
+
     return (
         <div>
             <header>
@@ -9,12 +17,12 @@ const AppliedVisa = () => {
 
             <div className="min-h-screen py-10 bg-gray-100">
                 <div className="text-center mb-10">
-                    <h2 className="text-3xl font-semibold text-gray-800">My Added Visas</h2>
-                    <p className="text-lg text-gray-600">Manage the visas you have added</p>
+                    <h2 className="text-3xl font-semibold text-gray-800">My Applied Visas</h2>
+                    <p className="text-lg text-gray-600">Manage the visas you already applied</p>
                 </div>
 
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {visas.filter((visa) => visa.userEmail === user.email)
+                    {visas.filter((visa) => visa.email === user.email)
                         .map((visa) => (
                             <div key={visa._id} className="card shadow-xl p-6 bg-white rounded-lg hover:shadow-2xl transition-shadow duration-300">
                                 <img
@@ -29,17 +37,14 @@ const AppliedVisa = () => {
                                     <p><strong>Fee:</strong> ${visa.fee}</p>
                                     <p><strong>Validity:</strong> {visa.validity}</p>
                                     <p><strong>Application Method:</strong> {visa.applicationMethod}</p>
+                                    <p><strong>Applied Date:</strong> {visa.appliedDate}</p>
+                                    <p><strong>Application Name:</strong> {visa.firstName} {visa.lastName}</p>
+                                    <p><strong>Application Email:</strong> {visa.email}</p>
                                 </div>
-                                <div className="flex justify-between mt-4">
-                                    <button
-                                        className="btn btn-secondary"
-                                        onClick={() => handleUpdate(visa)}
-                                    >
-                                        Update
-                                    </button>
+                                <div className="mt-4">
                                     <button
                                         className="btn btn-error"
-                                        onClick={() => handleDelete(visa._id)}
+                                        // onClick={() => handleDelete(visa._id)}
                                     >
                                         Delete
                                     </button>
@@ -49,114 +54,6 @@ const AppliedVisa = () => {
                 </div>
             </div>
 
-            {/* Update Modal */}
-            {modalData && (
-                <div className="modal modal-open">
-                    <div className="modal-box max-w-lg w-full p-6">
-                        <h3 className="font-bold text-xl text-center mb-6">Update Visa Information</h3>
-
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            {/* Country Name Field */}
-                            <div>
-                                <label htmlFor="countryName" className="block text-sm font-medium text-gray-700">Country Name</label>
-                                <input
-                                    id="countryName"
-                                    type="text"
-                                    name="countryName"
-                                    value={updatedVisa.countryName}
-                                    onChange={handleInputChange}
-                                    className="input input-bordered w-full mt-2 p-2 rounded-md border-gray-300"
-                                    placeholder="Enter Country Name"
-                                />
-                            </div>
-
-                            {/* Visa Type Field */}
-                            <div>
-                                <label htmlFor="visaType" className="block text-sm font-medium text-gray-700">Visa Type</label>
-                                <input
-                                    id="visaType"
-                                    type="text"
-                                    name="visaType"
-                                    value={updatedVisa.visaType}
-                                    onChange={handleInputChange}
-                                    className="input input-bordered w-full mt-2 p-2 rounded-md border-gray-300"
-                                    placeholder="Enter Visa Type"
-                                />
-                            </div>
-
-                            {/* Processing Time Field */}
-                            <div>
-                                <label htmlFor="processingTime" className="block text-sm font-medium text-gray-700">Processing Time</label>
-                                <input
-                                    id="processingTime"
-                                    type="text"
-                                    name="processingTime"
-                                    value={updatedVisa.processingTime}
-                                    onChange={handleInputChange}
-                                    className="input input-bordered w-full mt-2 p-2 rounded-md border-gray-300"
-                                    placeholder="Enter Processing Time"
-                                />
-                            </div>
-
-                            {/* Fee Field */}
-                            <div>
-                                <label htmlFor="fee" className="block text-sm font-medium text-gray-700">Fee ($)</label>
-                                <input
-                                    id="fee"
-                                    type="number"
-                                    name="fee"
-                                    value={updatedVisa.fee}
-                                    onChange={handleInputChange}
-                                    className="input input-bordered w-full mt-2 p-2 rounded-md border-gray-300"
-                                    placeholder="Enter Fee"
-                                />
-                            </div>
-
-                            {/* Validity Field */}
-                            <div>
-                                <label htmlFor="validity" className="block text-sm font-medium text-gray-700">Validity</label>
-                                <input
-                                    id="validity"
-                                    type="text"
-                                    name="validity"
-                                    value={updatedVisa.validity}
-                                    onChange={handleInputChange}
-                                    className="input input-bordered w-full mt-2 p-2 rounded-md border-gray-300"
-                                    placeholder="Enter Validity"
-                                />
-                            </div>
-
-                            {/* Application Method Field */}
-                            <div>
-                                <label htmlFor="applicationMethod" className="block text-sm font-medium text-gray-700">Application Method</label>
-                                <input
-                                    id="applicationMethod"
-                                    type="text"
-                                    name="applicationMethod"
-                                    value={updatedVisa.applicationMethod}
-                                    onChange={handleInputChange}
-                                    className="input input-bordered w-full mt-2 p-2 rounded-md border-gray-300"
-                                    placeholder="Enter Application Method"
-                                />
-                            </div>
-
-                            {/* Modal Action Buttons */}
-                            <div className="modal-action flex justify-between mt-6">
-                                <button type="submit" className="btn btn-primary w-full sm:w-auto py-2 px-6 text-white rounded-md hover:bg-blue-600">
-                                    Save
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn w-full sm:w-auto py-2 px-6 text-gray-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                                    onClick={() => setModalData(null)}
-                                >
-                                    Cancel
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            )}
 
 
             <footer>

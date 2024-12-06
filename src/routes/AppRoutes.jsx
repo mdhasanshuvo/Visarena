@@ -9,6 +9,7 @@ import AddVisa from '../pages/AddVisa';
 import AllVisa from '../pages/AllVisa';
 import MyAddedVisa from '../pages/MyAddedVisa';
 import VisaDetails from '../pages/VisaDetails';
+import AppliedVisa from '../pages/AppliedVisa';
 
 const AppRoutes = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ const AppRoutes = createBrowserRouter([
     path: '/myAddedVisa',
     element: <MyAddedVisa></MyAddedVisa>,
     loader: () => fetch('https://visarena-server.vercel.app/visarena'),
+  },
+  {
+    path: '/appliedVisa',
+    element: <AppliedVisa></AppliedVisa>,
+    loader: () => fetch('https://visarena-server.vercel.app/appliedvisas'),
   },
   {
     path: '/auth',
