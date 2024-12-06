@@ -1,75 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LatestVisas = () => {
+    const [visas, setVisas] = useState([]);
     const navigate = useNavigate();
 
-    // Placeholder data; replace with actual fetched data later
-    const visas = [
-        {
-            country: 'Japann',
-            image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
-            visaType: 'Tourist Visa',
-            processingTime: '10-15 days',
-            fee: '$50',
-            validity: '90 days',
-            applicationMethod: 'Online',
-        },
-        {
-            country: 'Japan',
-            image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
-            visaType: 'Tourist Visa',
-            processingTime: '10-15 days',
-            fee: '$50',
-            validity: '90 days',
-            applicationMethod: 'Online',
-        },
-        {
-            country: 'Japan',
-            image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
-            visaType: 'Tourist Visa',
-            processingTime: '10-15 days',
-            fee: '$50',
-            validity: '90 days',
-            applicationMethod: 'Online',
-        },
-        {
-            country: 'Japan',
-            image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
-            visaType: 'Tourist Visa',
-            processingTime: '10-15 days',
-            fee: '$50',
-            validity: '90 days',
-            applicationMethod: 'Online',
-        },
-        {
-            country: 'Japan',
-            image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
-            visaType: 'Tourist Visa',
-            processingTime: '10-15 days',
-            fee: '$50',
-            validity: '90 days',
-            applicationMethod: 'Online',
-        },
-        {
-            country: 'Japan',
-            image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
-            visaType: 'Tourist Visa',
-            processingTime: '10-15 days',
-            fee: '$50',
-            validity: '90 days',
-            applicationMethod: 'Online',
-        },
-    ];
+    // Fetch the latest visas from the backend
+    useEffect(() => {
+        fetch('https://visarena-server.vercel.app/latest-visas')
+            .then((res) => res.json())
+            .then((data) => setVisas(data))
+            .catch((err) => console.error('Error fetching latest visas:', err));
+    }, []);
 
     return (
         <div className="px-4 py-8">
             <h2 className="text-3xl font-bold text-center mb-8">Latest Visas</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {visas.map((visa, index) => (
-                    <div key={index} className="card bg-base-100 shadow-xl">
+                {visas.map((visa) => (
+                    <div key={visa._id} className="card bg-base-100 shadow-xl">
                         <figure>
-                            <img src={visa.image} alt={visa.country} className="w-full h-48 object-cover" />
+                            <img src={visa.countryImage} alt={visa.country} className="w-full h-48 object-cover" />
                         </figure>
                         <div className="card-body">
                             <h3 className="card-title">{visa.country}</h3>
@@ -81,7 +32,7 @@ const LatestVisas = () => {
                             <div className="card-actions justify-end">
                                 <button
                                     className="btn btn-primary"
-                                    onClick={() => navigate(`/visa-details/${index}`)}
+                                    onClick={() => navigate(`/allVisa/${visa._id}`)}
                                 >
                                     See Details
                                 </button>
@@ -93,7 +44,7 @@ const LatestVisas = () => {
             <div className="text-center mt-8">
                 <button
                     className="btn btn-accent"
-                    onClick={() => navigate('/all-visas')}
+                    onClick={() => navigate('/allVisa')}
                 >
                     See All Visas
                 </button>
