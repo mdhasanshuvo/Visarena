@@ -18,13 +18,13 @@ const AppRoutes = createBrowserRouter([
   {
     path: '/allVisa',
     element: <AllVisa></AllVisa>,
-    loader: () => fetch('http://localhost:5000/visarena'),
+    loader: () => fetch('https://visarena-server.vercel.app/visarena'),
   },
   {
     path: '/allVisa/:id',
     element: <VisaDetails></VisaDetails>,
     loader: async ({ params }) => {
-      const response = await fetch(`http://localhost:5000/visarena/${params.id}`);
+      const response = await fetch(`https://visarena-server.vercel.app/visarena/${params.id}`);
       return response.json();
     },
   },
@@ -35,7 +35,7 @@ const AppRoutes = createBrowserRouter([
   {
     path: '/myAddedVisa',
     element: <MyAddedVisa></MyAddedVisa>,
-    loader: () => fetch('http://localhost:5000/visarena'),
+    loader: () => fetch('https://visarena-server.vercel.app/visarena'),
   },
   {
     path: '/auth',

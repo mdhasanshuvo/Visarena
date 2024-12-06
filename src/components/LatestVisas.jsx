@@ -7,7 +7,7 @@ const LatestVisas = () => {
     // Placeholder data; replace with actual fetched data later
     const visas = [
         {
-            country: 'Japan',
+            country: 'Japann',
             image: 'https://t4.ftcdn.net/jpg/10/28/41/49/360_F_1028414908_RINILfSDUkHyQrAn9qM0k0X1bmEawDcW.jpg',
             visaType: 'Tourist Visa',
             processingTime: '10-15 days',

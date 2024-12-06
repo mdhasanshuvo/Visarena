@@ -24,7 +24,7 @@ const MyAddedVisa = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/visarena/${id}`, {
+                fetch(`https://visarena-server.vercel.app/visarena/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -56,7 +56,7 @@ const MyAddedVisa = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:5000/visarena/${modalData._id}`, {
+        fetch(`https://visarena-server.vercel.app/visarena/${modalData._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

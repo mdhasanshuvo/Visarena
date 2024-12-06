@@ -50,7 +50,7 @@ const AddVisa = () => {
 
         try {
             // Save newVisa to the database 
-            fetch('http://localhost:5000/visarena', {
+            fetch('https://visarena-server.vercel.app/visarena', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
