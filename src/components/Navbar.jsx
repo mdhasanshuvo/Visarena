@@ -10,13 +10,9 @@ const Navbar = () => {
     const lists = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allVisa'>All Visa</NavLink></li>
-        {
-            user && <>
-                <li><NavLink to='/addVisa'>Add Visa</NavLink></li>
-                <li><NavLink to='/myAddedVisa'>My Added Visas</NavLink></li>
-                <li><NavLink to='/appliedVisa'>My Visa Applications</NavLink></li>
-            </>
-        }
+        <li><NavLink to='/addVisa'>Add Visa</NavLink></li>
+        <li><NavLink to='/myAddedVisa'>My Added Visas</NavLink></li>
+        <li><NavLink to='/appliedVisa'>My Visa Applications</NavLink></li>
     </>
     const { pathname } = useLocation();
     return (

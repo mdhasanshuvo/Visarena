@@ -10,6 +10,7 @@ import AllVisa from '../pages/AllVisa';
 import MyAddedVisa from '../pages/MyAddedVisa';
 import VisaDetails from '../pages/VisaDetails';
 import AppliedVisa from '../pages/AppliedVisa';
+import PrivateRoute from './PrivateRoute';
 
 const AppRoutes = createBrowserRouter([
   {
@@ -23,7 +24,9 @@ const AppRoutes = createBrowserRouter([
   },
   {
     path: '/allVisa/:id',
-    element: <VisaDetails></VisaDetails>,
+    element: <PrivateRoute>
+      <VisaDetails></VisaDetails>,
+    </PrivateRoute>,
     loader: async ({ params }) => {
       const response = await fetch(`https://visarena-server.vercel.app/visarena/${params.id}`);
       return response.json();
@@ -31,16 +34,22 @@ const AppRoutes = createBrowserRouter([
   },
   {
     path: '/addVisa',
-    element: <AddVisa></AddVisa>,
+    element: <PrivateRoute>
+      <AddVisa></AddVisa>
+    </PrivateRoute>,
   },
   {
     path: '/myAddedVisa',
-    element: <MyAddedVisa></MyAddedVisa>,
+    element: <PrivateRoute>
+      <MyAddedVisa></MyAddedVisa>
+    </PrivateRoute>,
     loader: () => fetch('https://visarena-server.vercel.app/visarena'),
   },
   {
     path: '/appliedVisa',
-    element: <AppliedVisa></AppliedVisa>,
+    element: <PrivateRoute>
+      <AppliedVisa></AppliedVisa>
+    </PrivateRoute>,
     loader: () => fetch('https://visarena-server.vercel.app/appliedvisas'),
   },
   {
