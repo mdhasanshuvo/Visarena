@@ -3,11 +3,41 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AppliedVisa = () => {
     const loadedVisas = useLoaderData();
     const [visas, setVisas] = useState(loadedVisas);
     const { user } = useContext(AuthContext);
+
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'This Application be deleted permanently!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`https://visarena-server.vercel.app/appliedvisas/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire('Deleted!', 'The application has been deleted.', 'success');
+                        }
+                        const remaining = visas.filter(visa => visa._id !== id);
+                        setVisas(remaining);
+                    })
+            }
+        });
+    };
 
     return (
         <div>
@@ -44,7 +74,7 @@ const AppliedVisa = () => {
                                 <div className="mt-4">
                                     <button
                                         className="btn btn-error"
-                                        // onClick={() => handleDelete(visa._id)}
+                                        onClick={() => handleDelete(visa._id)}
                                     >
                                         Delete
                                     </button>
