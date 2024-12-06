@@ -16,7 +16,7 @@ const Navbar = () => {
     </>
     const { pathname } = useLocation();
     return (
-        <div className={`bg-white border ${pathname === '/auth/login' || pathname === '/auth/register' ? 'h-36' : ''}`}
+        <div className={`bg-white ${pathname === '/auth/login' || pathname === '/auth/register' ? 'h-36' : ''} container mx-auto`}
         >
             <div className="navbar">
                 <div className="navbar-start">

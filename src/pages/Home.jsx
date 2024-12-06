@@ -3,10 +3,11 @@ import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import LatestVisas from '../components/LatestVisas';
 import Footer from '../components/Footer';
+import About from './About';
 
 const Home = () => {
     return (
-        <div>
+        <div className=''>
             {/* header section */}
             <header>
                 <Navbar></Navbar>
@@ -15,8 +16,11 @@ const Home = () => {
 
             <main>
 
+                <About></About>
+
                 {/* latest visa section  */}
                 <LatestVisas></LatestVisas>
+
 
             </main>
 

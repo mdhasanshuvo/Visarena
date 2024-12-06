@@ -2,10 +2,9 @@ import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import family from '../assets/family.jpg'
-// import study from '../assets/student-visa.png'
-// import tourist from '../assets/tourist.jpeg'
-// import all from '../assets/all.png'
+import family from '../assets/family.jpg';
+import study from '../assets/student-visa.png';
+import tourist from '../assets/tourist.jpeg';
 
 const Banner = () => {
     const settings = {
@@ -21,18 +20,18 @@ const Banner = () => {
 
     const slides = [
         {
-            title: 'Discover the World with Ease',
-            subtext: 'Check visa requirements and apply online seamlessly.',
-            img: family,
+            title: 'Simplify Your Travel Process',
+            subtext: 'With Visarena, applying for visas has never been easier.',
+            img: tourist,
         },
         {
-            title: 'Simplify Your Visa Journey',
-            subtext: 'Track your applications anytime, anywhere.',
-            img: family,
+            title: 'Your Gateway to the World',
+            subtext: 'Check visa requirements and track your applications seamlessly.',
+            img: study,
         },
         {
-            title: 'Plan, Apply, Travel',
-            subtext: 'Visarena makes it all possible.',
+            title: 'Plan, Apply, Travel Hassle-Free',
+            subtext: 'Visarena makes your travel dreams come true.',
             img: family,
         },
     ];
@@ -45,12 +44,18 @@ const Banner = () => {
                         <img
                             src={slide.img}
                             alt={slide.title}
-                            className="w-full h-[500px] object-cover"
+                            className="w-full h-[500px] md:h-[600px] object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/50 flex flex-col items-start justify-center p-8 space-y-4">
-                            <h1 className="text-4xl md:text-6xl font-bold text-white">{slide.title}</h1>
-                            <p className="text-lg md:text-2xl text-white">{slide.subtext}</p>
-                            <button className="btn btn-accent">Learn More</button>
+                        <div className="absolute inset-0 flex items-center justify-start bg-black/40 px-8 md:px-16">
+                            <div className="max-w-md text-left space-y-4">
+                                <h1 className="text-3xl md:text-5xl font-bold text-white">
+                                    {slide.title}
+                                </h1>
+                                <p className="text-sm md:text-lg text-white">
+                                    {slide.subtext}
+                                </p>
+                                <button className="btn btn-primary">Learn More</button>
+                            </div>
                         </div>
                     </div>
                 ))}
