@@ -6,20 +6,26 @@ import Footer from '../components/Footer';
 import { AuthContext } from '../provider/AuthProvider';
 
 const VisaDetails = () => {
+    const visa = useLoaderData();
     const { user } = useContext(AuthContext);
     const [modalOpen, setModalOpen] = useState(false);
     const [applicationData, setApplicationData] = useState({
-        email: user ? user.email : '',
+        countryName: visa.countryName,
+        countryImage: visa.countryImage,
+        visaType: visa.visaType,
+        processingTime: visa.processingTime,
+        fee: visa.fee,
+        validity: visa.validity,
+        applicationMethod: visa.applicationMethod,
+        appliedDate: new Date().toISOString().split('T')[0], // Current date
         firstName: '',
         lastName: '',
-        appliedDate: new Date().toISOString().split('T')[0], // Current date
-        fee: 0,
+        email: user ? user.email : '',
     });
 
     const { visaId } = useParams(); // Get the visa ID from URL
     const navigate = useNavigate();
 
-    const visa = useLoaderData();
 
     if (!visa) {
         // If no visa is found, redirect or show an error
@@ -34,11 +40,25 @@ const VisaDetails = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        // Submit the application (Store data in database logic here)
+        console.log(applicationData)
 
-        Swal.fire('Success', 'Your visa application has been submitted!', 'success');
-        setModalOpen(false);
+        fetch('https://visarena-server.vercel.app/appliedvisas', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(applicationData),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire('Success', 'Your visa application has been submitted!', 'success');
+                    setModalOpen(false);
+                }
+            })
+
+
     };
 
     const handleApplyClick = () => {
@@ -151,7 +171,7 @@ const VisaDetails = () => {
                                     id="fee"
                                     type="number"
                                     name="fee"
-                                    value={visa.fee}
+                                    value={applicationData.fee}
                                     onChange={handleInputChange}
                                     className="input input-bordered w-full p-2 mt-2"
                                     readOnly
