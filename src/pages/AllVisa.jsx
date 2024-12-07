@@ -25,7 +25,7 @@ const AllVisa = () => {
             </header>
 
             <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 py-12">
-                <div className="container mx-auto px-6 lg:px-12">
+                <div className="container mx-auto px-4">
                     {/* Page Heading */}
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-primary">Explore Visas</h1>
@@ -49,7 +49,7 @@ const AllVisa = () => {
                     </div>
 
                     {/* Visa Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                         {filteredVisas.length > 0 ? (
                             filteredVisas.map((visa) => (
                                 <div

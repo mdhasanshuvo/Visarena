@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div className='bg-neutral'>
-            <footer className="footer text-neutral-content p-10 px-4 md:px-0 container mx-auto">
+            <footer className="footer text-neutral-content p-10 px-4 container mx-auto">
                 <aside>
                     <h2 className='text-4xl'>VISARENA</h2>
                     <p>
@@ -33,7 +33,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-            <footer className="footer container mx-auto text-neutral-content items-center pb-4 px-4 md:px-0">
+            <footer className="footer container mx-auto text-neutral-content items-center pb-4 px-4">
                 <aside className="grid-flow-col items-center">
                     <p>Copyright © {new Date().getFullYear()} - All right reserved by Visarena</p>
                 </aside>
