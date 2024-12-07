@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -49,6 +49,15 @@ const AuthProvider = ({ children }) => {
             .finally(() => setLoading(false));
     };
 
+    const [theme, setTheme] = React.useState('light');
+    const toggleTheme = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    };
+    // initially set the theme and "listen" for changes to apply them to the HTML tag
+    React.useEffect(() => {
+        document.querySelector('html').setAttribute('data-theme', theme);
+    }, [theme]);
+
 
     const authValues = {
         user,
@@ -62,6 +71,8 @@ const AuthProvider = ({ children }) => {
         resetPassword,
         email,
         setEmail,
+        theme,
+        toggleTheme
     }
 
     useEffect(() => {
