@@ -56,31 +56,28 @@ const AddVisa = () => {
         };
 
         try {
-            // Save newVisa to the database 
+            // Save newVisa to the database
             fetch('https://visarena-server.vercel.app/visarena', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
                 },
-                body: JSON.stringify(newVisaData)
+                body: JSON.stringify(newVisaData),
             })
-                .then(res => res.json())
-                .then(data => {
+                .then((res) => res.json())
+                .then((data) => {
                     console.log(data);
-                    if (data.insertedId > 0) {
+                    if (data.insertedId) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Visa added successfully!',
                             showConfirmButton: false,
                             timer: 2000,
+                        }).then(() => {
+                            navigate('/allvisa'); 
                         });
-
                     }
-                })
-
-            // navigate('/');
-
-            // Redirect to "My Added Visas" page (adjust the route as needed)
+                });
         } catch (error) {
             Swal.fire({
                 icon: 'error',
@@ -91,6 +88,7 @@ const AddVisa = () => {
 
         console.log(newVisaData);
     };
+
 
     return (
         <div>

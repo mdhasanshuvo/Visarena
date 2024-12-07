@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const AppliedVisa = () => {
     const loadedVisas = useLoaderData();
     const [visas, setVisas] = useState(loadedVisas);
+    const [searchTerm, setSearchTerm] = useState(''); 
     const { user } = useContext(AuthContext);
 
     const handleDelete = (id) => {
@@ -35,6 +36,16 @@ const AppliedVisa = () => {
         });
     };
 
+    const handleSearch = () => {
+        setVisas(
+            loadedVisas.filter(
+                (visa) =>
+                    visa.email === user.email &&
+                    visa.countryName.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        );
+    };
+
     return (
         <div>
             <header>
@@ -45,6 +56,23 @@ const AppliedVisa = () => {
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-primary">My Applied Visas</h1>
                     <p className="text-lg text-gray-600 mt-2">View and manage your visa applications</p>
+                </div>
+
+                {/* Search Bar */}
+                <div className="max-w-4xl mx-auto mb-8 flex gap-4">
+                    <input
+                        type="text"
+                        placeholder="Search by country name"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="input input-bordered w-full"
+                    />
+                    <button
+                        onClick={handleSearch}
+                        className="btn btn-primary"
+                    >
+                        Search
+                    </button>
                 </div>
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -61,7 +89,7 @@ const AppliedVisa = () => {
                                     alt={visa.countryName}
                                     className="w-full h-48 object-cover rounded-md"
                                 />
-                                
+
                                 {/* Visa Info */}
                                 <div className="mt-4">
                                     <h2 className="text-xl font-bold text-gray-800">

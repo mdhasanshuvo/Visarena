@@ -33,6 +33,7 @@ const LatestVisas = () => {
                                 />
                             </div>
                             <div className="p-6">
+                                <h3 className="text-2xl font-bold text-gray-800 mb-2">{visa.countryName}</h3>
                                 <h3 className="text-2xl font-semibold text-gray-800 mb-2">
                                     {visa.country}
                                 </h3>
@@ -46,8 +47,11 @@ const LatestVisas = () => {
                                 <p className="text-sm text-gray-600 mb-2">
                                     <strong>Fee:</strong> {visa.fee}
                                 </p>
-                                <p className="text-sm text-gray-600 mb-4">
+                                <p className="text-sm text-gray-600 mb-2">
                                     <strong>Validity:</strong> {visa.validity}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-4">
+                                    <strong>Application Method:</strong> {visa.applicationMethod}
                                 </p>
                                 <button
                                     className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-focus transition-colors"

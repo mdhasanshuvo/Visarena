@@ -48,6 +48,7 @@ const VisaDetails = () => {
                 if (data.insertedId) {
                     Swal.fire('Success', 'Your visa application has been submitted!', 'success');
                     setModalOpen(false);
+                    navigate('/appliedVisa');
                 }
             });
     };
