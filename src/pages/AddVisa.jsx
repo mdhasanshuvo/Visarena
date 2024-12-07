@@ -4,10 +4,17 @@ import Swal from 'sweetalert2';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { AuthContext } from '../provider/AuthProvider';
+import Loading from '../components/Loading';
 
 const AddVisa = () => {
     const navigate = useNavigate();
-    const { user } = useContext(AuthContext); // Get the current user
+    const { user, loading } = useContext(AuthContext);
+
+    console.log(loading)
+    if (loading) {
+        return <Loading></Loading>;
+    }
+
     const [visaData, setVisaData] = useState({
         countryImage: '',
         countryName: '',
@@ -70,10 +77,10 @@ const AddVisa = () => {
 
                     }
                 })
-                
-                // navigate('/');
-                
-             // Redirect to "My Added Visas" page (adjust the route as needed)
+
+            // navigate('/');
+
+            // Redirect to "My Added Visas" page (adjust the route as needed)
         } catch (error) {
             Swal.fire({
                 icon: 'error',
