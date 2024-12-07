@@ -1,22 +1,45 @@
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import aboutImage from '../assets/all.png';
 
 const About = () => {
     return (
-        <div className="container mx-auto">
-            {/* bg-gradient-to-b from-base-200 to-base-100  */}
-            <section className="py-20 text-base-content">
-                <div className="container mx-auto text-center max-w-3xl px-4 space-y-12">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">About Visarena</h2>
-                    <p className="text-sm md:text-lg mb-6">
-                        Visarena is your one-stop solution for navigating the complexities of visa applications.
-                        Whether you're planning a trip abroad for tourism, study, or work, our platform provides
-                        comprehensive visa information, simplifies the application process, and tracks your status every step of the way.
-                        Get started now to make your visa journey seamless and stress-free.
+        <section className="py-40 bg-gradient-to-b from-base-200 to-base-100 text-base-content">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-10 md:space-y-0">
+                {/* Left Column: Image and Text */}
+                <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+                        Unknown Wanderlust <br /> Your Journey into
+                    </h2>
+                    <p className="text-sm md:text-lg mb-6 text-gray-600">
+                        Visarena is here to help you navigate your travel dreams effortlessly. We simplify visa applications and
+                        make the journey smoother from start to finish. From safety tips to passport assistance, we’ve got you covered.
                     </p>
-                    <Link to="/allVisa" className="btn btn-primary btn-wide text-white">Start Your Visa Journey</Link>
+                    <div className="flex flex-col items-center md:items-start gap-4">
+                        <div className="flex items-center text-gray-600">
+                            <span className="mr-2 text-green-500">✔</span>
+                            <span>Safety Guides</span>
+                        </div>
+                        <div className="flex items-center text-gray-600">
+                            <span className="mr-2 text-green-500">✔</span>
+                            <span>Passport Assistance</span>
+                        </div>
+                    </div>
+                    <Link to="/services" className="btn btn-accent text-white mt-6">
+                        Read More
+                    </Link>
                 </div>
-            </section>
-        </div>
+
+                {/* Right Column: Image */}
+                <div className="w-full md:w-1/2">
+                    <img
+                        src={aboutImage}
+                        alt="About Visarena"
+                        className="w-full h-auto object-cover rounded-lg shadow-lg"
+                    />
+                </div>
+            </div>
+        </section>
     );
 };
 

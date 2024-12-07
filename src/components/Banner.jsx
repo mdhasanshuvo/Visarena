@@ -3,9 +3,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import family from '../assets/family.jpg';
+import tourist from '../assets/---tourist.jpeg';
 import study from '../assets/student-visa.jpg';
-import tourist from '../assets/tourist.jpeg';
-import { Link } from 'react-router-dom';
 
 const Banner = () => {
     const settings = {
@@ -21,22 +20,21 @@ const Banner = () => {
 
     const slides = [
         {
-            title: 'Explore the World with Ease',
-            subtext: 'Apply for tourist visas effortlessly and start your next adventure with Visarena.',
+            title: 'Journey with Confidence',
+            subtext: 'Start your migration journey today with Visarena. Our easy and secure process makes visa applications simple.',
             img: tourist,
         },
         {
-            title: 'Study Abroad Made Simple',
-            subtext: 'Get the right student visa quickly and easily with Visarena’s streamlined process.',
-            img: study,
-        },
-        {
-            title: 'Family Travel, Simplified',
-            subtext: 'Apply for family visas and make your vacations unforgettable with Visarena’s hassle-free services.',
+            title: 'Travel Together, Travel Smarter',
+            subtext: 'Applying for family visas is effortless with Visarena. Let us help you travel and reunite with your loved ones.',
             img: family,
         },
+        {
+            title: 'Explore New Opportunities Abroad',
+            subtext: 'Whether you are planning to study or work, Visarena has you covered with visa services that make your dreams a reality.',
+            img: study,
+        },
     ];
-
 
     return (
         <div className="relative w-full">
@@ -46,18 +44,14 @@ const Banner = () => {
                         <img
                             src={slide.img}
                             alt={slide.title}
-                            className="w-full h-[60vh] object-cover"
+                            className="w-full h-[55vh] object-cover"
                         />
-                        <div className="absolute inset-0 flex items-center justify-start bg-black/40 px-8 md:px-16">
-                            <div className="mx-auto space-y-4 container text-center">
-                                <h1 className="text-3xl md:text-5xl font-bold text-white">
-                                    {slide.title}
-                                </h1>
-                                <p className="text-sm md:text-lg text-white">
-                                    {slide.subtext}
-                                </p>
-                                <Link to='/allVisa' className="btn btn-primary">Learn More</Link>
-                            </div>
+                        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-8 text-center space-y-4">
+                            <h1 className="text-4xl md:text-6xl font-bold text-white">{slide.title}</h1>
+                            <p className="text-lg md:text-2xl text-white">{slide.subtext}</p>
+                            <button className="btn btn-accent text-white py-2 px-6 rounded-full">
+                                Get Started
+                            </button>
                         </div>
                     </div>
                 ))}
