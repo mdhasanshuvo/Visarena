@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Import SweetAlert2
 import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
-
     const { signIn, setUser, googleAuth, email, setEmail } = useContext(AuthContext);
 
     const location = useLocation();
@@ -17,13 +17,25 @@ const Login = () => {
                 const userFromGoogle = result.user;
                 console.log(userFromGoogle);
                 setUser(userFromGoogle);
-                // setErrorMessage({});
-                // toast.success('Successfully logged in with Google!');
+
+                // Show success message with SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful',
+                    text: 'You have successfully logged in with Google!',
+                });
+
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.log(error.message);
-                // toast.error('Google login failed!');
+
+                // Show error message with SweetAlert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: 'Google login failed. Please try again later.',
+                });
             });
     };
 
@@ -33,27 +45,36 @@ const Login = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
-
         signIn(email, password)
             .then(result => {
                 const user = result.user;
                 setUser(user);
                 setEmail('');
-                // toast.success('Successfully logged in!'); e
+
+                // Show success message with SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful',
+                    text: 'You have successfully logged in!',
+                });
+
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
-                // setErrorMessage({ ...errorMessage, login: error.code });
-                // toast.error('Login failed! Please check your credentials.'); 
+                console.log(error.message);
+
+                // Show error message with SweetAlert
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: 'Login failed! Please check your credentials and try again.',
+                });
             });
     };
 
     return (
         <div className="min-h-screen flex justify-center items-center -mt-20 bg-[#F3F3F3]">
-            {/* <Helmet>
-                <title>Login | </title>
-            </Helmet> */}
-            <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10 ">
+            <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10">
                 <h2 className="text-2xl font-semibold text-center">Login your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
@@ -64,7 +85,6 @@ const Login = () => {
                             name="email"
                             type="email"
                             placeholder="email"
-                            // value={email}
                             className="input input-bordered"
                             required
                         />
@@ -73,19 +93,14 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input name="password" type="password" placeholder="password" className="input input-bordered" required />
-
-                        {/* {
-                            errorMessage.login && (
-                                <label className="label text-sm text-red-500">
-                                    {errorMessage.login}
-                                </label>
-                            )
-                        } */}
-
-                        <a
-                            className="label-text-alt link link-hover"
-                        >
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="password"
+                            className="input input-bordered"
+                            required
+                        />
+                        <a className="label-text-alt link link-hover">
                             Forgot password?
                         </a>
                     </div>
@@ -98,17 +113,13 @@ const Login = () => {
 
                     <div className="text-center space-y-3">
                         <h2 className="text-center mt-10">Or, Log in with</h2>
-                        <button className="btn"
-                        onClick={onClickForGoogle}
-                        >
+                        <button className="btn" onClick={onClickForGoogle}>
                             <FaGoogle />
                             <span className="text-lg font-light">Google</span>
                         </button>
                     </div>
                 </form>
             </div>
-
-            {/* <ToastContainer /> */}
         </div>
     );
 };

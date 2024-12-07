@@ -132,7 +132,7 @@ const Register = () => {
 
                     <div className="text-center space-y-3">
                         <h2 className="text-center mt-10">Or, Register with</h2>
-                        <button className="btn flex items-center justify-center gap-2"
+                        <button className="btn"
                             onClick={onClickForGoogle}
                         >
                             <FaGoogle />
