@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import family from '../assets/family.jpg';
 import tourist from '../assets/---tourist.jpeg';
 import study from '../assets/student-visa.jpg';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     const settings = {
@@ -49,9 +50,9 @@ const Banner = () => {
                         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-8 text-center space-y-4">
                             <h1 className="text-4xl md:text-6xl font-bold text-white">{slide.title}</h1>
                             <p className="text-lg md:text-2xl text-white">{slide.subtext}</p>
-                            <button className="btn btn-accent text-white py-2 px-6 rounded-full">
+                            <Link to='/allvisa' className="btn btn-accent text-white py-2 px-6 rounded-full">
                                 Get Started
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 ))}
