@@ -4,6 +4,8 @@ import Banner from '../components/Banner';
 import LatestVisas from '../components/LatestVisas';
 import Footer from '../components/Footer';
 import About from './About';
+import Success from '../components/Success';
+import TestimonialSection from '../components/Testimonial';
 
 const Home = () => {
     return (
@@ -20,6 +22,10 @@ const Home = () => {
 
                 {/* latest visa section  */}
                 <LatestVisas></LatestVisas>
+
+                <Success></Success>
+
+                <TestimonialSection></TestimonialSection>
 
 
             </main>

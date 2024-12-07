@@ -5,7 +5,7 @@ import aboutImage from '../assets/all.png';
 const About = () => {
     return (
         <section className="py-40 bg-gradient-to-b from-base-200 to-base-100 text-base-content">
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-10 md:space-y-0">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-10 md:space-y-0  px-4 md:px-0">
                 {/* Left Column: Image and Text */}
                 <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
