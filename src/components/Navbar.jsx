@@ -52,16 +52,35 @@ const Navbar = () => {
                 <div className="navbar-end">
 
                     {
-                        user ?
+                        user ? (
                             <div className="flex items-center gap-3 justify-center">
-                                <div>
-                                    <img className='w-7 sm:w-9 rounded-full ' src={user?.photoURL} alt="" />
+                                {/* User Photo with Hover Tooltip */}
+                                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                    <img
+                                        className="w-7 sm:w-9 rounded-full cursor-pointer"
+                                        src={user?.photoURL}
+                                        alt="User Avatar"
+                                    />
                                 </div>
-                                <Link onClick={logout} to='/' className='btn btn-primary sm:px-5 text-white  rounded-lg min-h-9 h-9 text-sm'>Log out</Link>
-                            </div> :
-                            <Link to='/auth/login' className='btn btn-primary sm:px-5 text-white  rounded-lg min-h-9 h-9 text-sm'>Login / Register</Link>
+                                {/* Logout Button */}
+                                <Link
+                                    onClick={logout}
+                                    to="/"
+                                    className="btn btn-primary sm:px-5 text-white rounded-lg min-h-9 h-9 text-sm"
+                                >
+                                    Log out
+                                </Link>
+                            </div>
+                        ) : (
+                            <Link
+                                to="/auth/login"
+                                className="btn btn-primary sm:px-5 text-white rounded-lg min-h-9 h-9 text-sm"
+                            >
+                                Login / Register
+                            </Link>
+                        )
                     }
-                    {/* <input type="checkbox" value="synthwave" className="toggle theme-controller" onClick={toggleTheme}/> */}
+
                     <label className="swap swap-rotate" >
                         {/* this hidden checkbox controls the state */}
                         <input type="checkbox" className="theme-controller" value="synthwave" onClick={toggleTheme} />
