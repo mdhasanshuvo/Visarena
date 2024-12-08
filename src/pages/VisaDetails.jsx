@@ -115,7 +115,7 @@ const VisaDetails = () => {
             {/* Modal for Visa Application */}
             {modalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white rounded-lg shadow-lg w-11/12 max-w-md">
+                    <div className="bg-base-200 rounded-lg shadow-lg w-11/12 max-w-md">
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4">Apply for {visa.countryName} Visa</h2>
                             <form onSubmit={handleSubmit} className="space-y-4">

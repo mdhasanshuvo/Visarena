@@ -37,7 +37,7 @@ const AllVisa = () => {
                         <select
                             name="visaType"
                             onChange={handleFilterChange} // Attach filter change handler
-                            className="select select-bordered w-full max-w-sm text-lg bg-white border-gray-300 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
+                            className="select select-bordered w-full max-w-sm text-lg border-gray-300 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
                             defaultValue="All Visa"
                         >
                             {visaTypes.map((type, index) => (
