@@ -72,7 +72,7 @@ const VisaDetails = () => {
                 <Navbar />
             </header>
 
-            <main className="min-h-screen py-12 px-6 bg-gray-100">
+            <main className="min-h-screen py-12 px-6 bg-base-200">
                 <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full md:w-1/2 p-6">

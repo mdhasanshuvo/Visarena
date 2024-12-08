@@ -12,6 +12,9 @@ const MyAddedVisa = () => {
     const [modalData, setModalData] = useState(null);
     const [updatedVisa, setUpdatedVisa] = useState({});
 
+    const visaTypes = ['Tourist visa', 'Student visa', 'Official visa'];
+    const documents = ['Valid passport', 'Visa application form', 'Recent passport-sized photograph'];
+
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -47,6 +50,16 @@ const MyAddedVisa = () => {
         setUpdatedVisa((prev) => ({ ...prev, [name]: value }));
     };
 
+    const handleCheckboxChange = (e) => {
+        const { value, checked } = e.target;
+        setUpdatedVisa((prev) => ({
+            ...prev,
+            requiredDocuments: checked
+                ? [...(prev.requiredDocuments || []), value]
+                : prev.requiredDocuments?.filter((doc) => doc !== value),
+        }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -77,7 +90,7 @@ const MyAddedVisa = () => {
                 <Navbar />
             </header>
 
-            <main className="min-h-screen py-12 px-6 bg-gray-100">
+            <main className="min-h-screen py-12 px-6 bg-base-200">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-primary">My Added Visas</h1>
                     <p className="text-lg text-gray-600 mt-2">
@@ -146,36 +159,127 @@ const MyAddedVisa = () => {
                     <div className="modal-box max-w-lg w-full">
                         <h3 className="font-bold text-xl text-center mb-4">Update Visa</h3>
                         <form onSubmit={handleSubmit} className="space-y-4">
-                            {['countryName', 'visaType', 'processingTime', 'fee', 'validity', 'applicationMethod'].map(
-                                (field) => (
-                                    <div key={field}>
-                                        <label
-                                            htmlFor={field}
-                                            className="block text-sm font-medium text-gray-700 capitalize"
-                                        >
-                                            {field.replace(/([A-Z])/g, ' $1')}
-                                        </label>
-                                        <input
-                                            id={field}
-                                            name={field}
-                                            value={updatedVisa[field]}
-                                            onChange={handleInputChange}
-                                            className="input input-bordered w-full mt-2"
-                                            placeholder={`Enter ${field}`}
-                                        />
-                                    </div>
-                                )
-                            )}
-                            <div className="flex justify-between mt-6">
-                                <button
-                                    type="submit"
-                                    className="btn btn-primary w-full sm:w-auto px-6 py-2"
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Country Image</label>
+                                <input
+                                    type="text"
+                                    name="countryImage"
+                                    value={updatedVisa.countryImage || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Country Name</label>
+                                <input
+                                    type="text"
+                                    name="countryName"
+                                    value={updatedVisa.countryName || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Visa Type</label>
+                                <select
+                                    name="visaType"
+                                    value={updatedVisa.visaType || ''}
+                                    onChange={handleInputChange}
+                                    className="select select-bordered w-full"
                                 >
-                                    Save
+                                    <option value="" disabled>
+                                        Select visa type
+                                    </option>
+                                    {visaTypes.map((type) => (
+                                        <option key={type} value={type}>
+                                            {type}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Processing Time</label>
+                                <input
+                                    type="text"
+                                    name="processingTime"
+                                    value={updatedVisa.processingTime || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Required Documents</label>
+                                <div className="flex flex-wrap gap-4">
+                                    {documents.map((doc, index) => (
+                                        <label key={index} className="flex items-center space-x-3">
+                                            <input
+                                                type="checkbox"
+                                                value={doc}
+                                                checked={updatedVisa.requiredDocuments?.includes(doc)}
+                                                onChange={handleCheckboxChange}
+                                                className="checkbox checkbox-accent"
+                                            />
+                                            <span>{doc}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Description</label>
+                                <textarea
+                                    name="description"
+                                    value={updatedVisa.description || ''}
+                                    onChange={handleInputChange}
+                                    className="textarea textarea-bordered w-full"
+                                ></textarea>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Age Restriction</label>
+                                <input
+                                    type="number"
+                                    name="ageRestriction"
+                                    value={updatedVisa.ageRestriction || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Visa Fee</label>
+                                <input
+                                    type="number"
+                                    name="fee"
+                                    value={updatedVisa.fee || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Validity</label>
+                                <input
+                                    type="text"
+                                    name="validity"
+                                    value={updatedVisa.validity || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Application Method</label>
+                                <input
+                                    type="text"
+                                    name="applicationMethod"
+                                    value={updatedVisa.applicationMethod || ''}
+                                    onChange={handleInputChange}
+                                    className="input input-bordered w-full"
+                                />
+                            </div>
+                            <div className="modal-action">
+                                <button type="submit" className="btn btn-primary">
+                                    Update Visa
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn btn-outline w-full sm:w-auto px-6 py-2"
+                                    className="btn btn-error"
                                     onClick={() => setModalData(null)}
                                 >
                                     Cancel
@@ -186,9 +290,7 @@ const MyAddedVisa = () => {
                 </div>
             )}
 
-            <footer>
-                <Footer />
-            </footer>
+            <Footer />
         </div>
     );
 };

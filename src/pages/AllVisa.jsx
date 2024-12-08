@@ -24,7 +24,7 @@ const AllVisa = () => {
                 <Navbar />
             </header>
 
-            <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 py-12">
+            <div className="min-h-screen bg-gradient-to-b bg-base-200 via-white to-gray-100 py-12">
                 <div className="container mx-auto px-4">
                     {/* Page Heading */}
                     <div className="text-center mb-12">

@@ -25,7 +25,7 @@ const About = () => {
                             <span>Passport Assistance</span>
                         </div>
                     </div>
-                    <Link to="/services" className="btn btn-accent text-white mt-6">
+                    <Link to='/allvisa' className="btn btn-accent text-white mt-6">
                         Read More
                     </Link>
                 </div>

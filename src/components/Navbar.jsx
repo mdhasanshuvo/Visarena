@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden px-1 sm:px-4">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -42,7 +42,7 @@ const Navbar = () => {
                             {lists}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl font-bold text-primary">VISARENA</a>
+                    <a className="btn btn-ghost text-xl font-bold text-primary px-1 sm:px-4">VISARENA</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -53,20 +53,20 @@ const Navbar = () => {
 
                     {
                         user ? (
-                            <div className="flex items-center gap-3 justify-center">
+                            <div className="flex items-center gap-1 md:gap-3 justify-center">
                                 {/* User Photo with Hover Tooltip */}
                                 <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                                     <img
-                                        className="w-7 sm:w-9 rounded-full cursor-pointer"
+                                        className="w-7 sm:w-9 rounded-full cursor-pointer  border-4 border-primary text-xs"
                                         src={user?.photoURL}
-                                        alt="User Avatar"
+                                        alt="Avatar"
                                     />
                                 </div>
                                 {/* Logout Button */}
                                 <Link
                                     onClick={logout}
                                     to="/"
-                                    className="btn btn-primary sm:px-5 text-white rounded-lg min-h-9 h-9 text-sm"
+                                    className="btn btn-primary px-1 sm:px-5 text-white rounded-lg min-h-9 h-9 text-[12px] sm:text-sm mx-1 sm:mx-2"
                                 >
                                     Log out
                                 </Link>

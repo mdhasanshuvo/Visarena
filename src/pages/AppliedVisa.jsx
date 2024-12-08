@@ -52,7 +52,7 @@ const AppliedVisa = () => {
                 <Navbar />
             </header>
 
-            <main className="min-h-screen py-12 px-6 bg-gray-100">
+            <main className="min-h-screen py-12 px-6 bg-base-200">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-primary">My Applied Visas</h1>
                     <p className="text-lg text-gray-600 mt-2">View and manage your visa applications</p>

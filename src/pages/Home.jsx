@@ -8,11 +8,12 @@ import Success from '../components/Success';
 import TestimonialSection from '../components/Testimonial';
 import { AuthContext } from '../provider/AuthProvider';
 import Loading from '../components/Loading';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
-    const  {loading} = useContext(AuthContext);
+    const { loading, user } = useContext(AuthContext);
 
-    if(loading){
+    if (loading) {
         return <Loading></Loading>;
     }
 
@@ -20,12 +21,36 @@ const Home = () => {
         <div className=''>
             {/* header section */}
             <header>
+                {
+                    user && (
+                        <h1
+                            className="text-center text-lg sm:text-2xl font-bold text-primary"
+                            style={{
+                                transition: 'color 0.3s ease',
+                            }}
+                        >
+                            <Typewriter
+                                words={[
+                                    `Hello, ${user.displayName}!!!`,
+                                    'Welcome to Visarena.',
+                                    'Explore visa options today!',
+                                ]}
+                                loop={0} // Only types each message once
+                                cursor
+                                cursorStyle="|"
+                                typeSpeed={70}
+                                deleteSpeed={50}
+                                delaySpeed={1500}
+                            />
+                        </h1>
+                    )
+                }
                 <Navbar></Navbar>
+
                 <Banner></Banner>
             </header>
 
             <main>
-
                 <About></About>
 
                 {/* latest visa section  */}
