@@ -101,7 +101,7 @@ const AddVisa = () => {
             </header>
 
             <div className="min-h-screen bg-base-200 py-10">
-                <div className="max-w-4xl mx-auto bg-base-100 shadow-lg rounded-lg p-8">
+                <div className="max-w-4xl lg:mx-auto bg-base-100 shadow-lg rounded-lg p-8 mx-3">
                     <h2 className="text-3xl font-bold mb-6 text-center text-primary">Add Visa</h2>
 
                     <form onSubmit={handleSubmit} className="space-y-6">

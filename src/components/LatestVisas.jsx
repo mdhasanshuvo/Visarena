@@ -14,7 +14,7 @@ const LatestVisas = () => {
     }, []);
 
     return (
-        <section className="bg-base-100 pb-40">
+        <section className="bg-base-100 pb-16 lg:pb-40">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-12 text-primary">
                     Latest Visa Updates

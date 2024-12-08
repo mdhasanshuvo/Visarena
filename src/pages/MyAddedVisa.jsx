@@ -161,7 +161,7 @@ const MyAddedVisa = () => {
 
             {modalData && (
                 <div className="modal modal-open">
-                    <div className="modal-box max-w-lg w-full">
+                    <div className="modal-box w-11/12 max-w-md">
                         <h3 className="font-bold text-xl text-center mb-4">Update Visa</h3>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>

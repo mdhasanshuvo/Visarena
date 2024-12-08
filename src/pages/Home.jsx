@@ -10,6 +10,8 @@ import { AuthContext } from '../provider/AuthProvider';
 import Loading from '../components/Loading';
 import { Typewriter } from 'react-simple-typewriter';
 import { Helmet } from 'react-helmet';
+import Lottie from 'lottie-react';
+import animationData from '../assets/Animation - 1733676453370.json';
 
 const Home = () => {
     const { loading, user } = useContext(AuthContext);
@@ -63,6 +65,11 @@ const Home = () => {
                 <Success></Success>
 
                 <TestimonialSection></TestimonialSection>
+
+
+                <div className='w-2/3 md:w-1/2 mx-auto mb-20 mt-10'>
+                    <Lottie animationData={animationData} loop={true} />
+                </div>
 
 
             </main>
