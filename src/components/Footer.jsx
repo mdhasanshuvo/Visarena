@@ -3,41 +3,41 @@ import React from 'react';
 const Footer = () => {
     return (
         <div className='bg-neutral'>
-            <footer className="footer text-neutral-content p-10 px-5 container mx-auto">
-                <aside className='mx-auto text-center sm:text-left sm:mx-0'>
-                    <h2 className='text-4xl mx-auto sm:mx-0'>VISARENA</h2>
+            <footer className="footer text-neutral-content p-8 pb-10 container mx-auto">
+                <aside>
+                    <h2 className='text-4xl'>VISARENA</h2>
                     <p>
                         Visarena Industries Ltd.
                         <br />
                         Providing reliable tech since 2024
                     </p>
                 </aside>
-                <nav className='mx-auto'>
+                <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Branding</a>
                     <a className="link link-hover">Design</a>
                     <a className="link link-hover">Marketing</a>
                     <a className="link link-hover">Advertisement</a>
                 </nav>
-                <nav className='mx-auto'>
+                <nav>
                     <h6 className="footer-title">Company</h6>
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>
                     <a className="link link-hover">Jobs</a>
                     <a className="link link-hover">Press kit</a>
                 </nav>
-                <nav className='mx-auto'>
+                <nav>
                     <h6 className="footer-title">Legal</h6>
                     <a className="link link-hover">Terms of use</a>
                     <a className="link link-hover">Privacy policy</a>
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-            <footer className="footer container mx-auto text-neutral-content items-center pb-4 px-4">
-                <aside className="grid-flow-col items-center text-center">
+            <footer className="footer container mx-auto text-neutral-content items-center pb-4 px-8">
+                <aside className="grid-flow-col items-center">
                     <p>Copyright © {new Date().getFullYear()} - All right reserved by Visarena</p>
                 </aside>
-                <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end mx-auto sm:mx-0">
+                <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
                     <a>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
