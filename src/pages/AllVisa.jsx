@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet';
 
 const AllVisa = () => {
     const visas = useLoaderData(); // Load visa data from the server
@@ -20,6 +21,9 @@ const AllVisa = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Visa | Visarena</title>
+            </Helmet>
             <header>
                 <Navbar />
             </header>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { signUp, setUser, updateUser, googleAuth } = useContext(AuthContext);
@@ -88,6 +89,9 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center -mt-20 bg-[#F3F3F3]">
+            <Helmet>
+                <title>Register | Visarena</title>
+            </Helmet>
             <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10 pb-5">
                 <h2 className="text-2xl font-semibold text-center">Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">

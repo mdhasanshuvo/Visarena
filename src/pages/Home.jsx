@@ -9,6 +9,7 @@ import TestimonialSection from '../components/Testimonial';
 import { AuthContext } from '../provider/AuthProvider';
 import Loading from '../components/Loading';
 import { Typewriter } from 'react-simple-typewriter';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     const { loading, user } = useContext(AuthContext);
@@ -19,6 +20,9 @@ const Home = () => {
 
     return (
         <div className=''>
+            <Helmet>
+                <title>Home | Visarena</title>
+            </Helmet>
             {/* header section */}
             <header>
                 {

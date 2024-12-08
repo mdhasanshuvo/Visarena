@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { AuthContext } from '../provider/AuthProvider';
 import Loading from '../components/Loading';
+import { Helmet } from 'react-helmet';
 
 const AddVisa = () => {
     const navigate = useNavigate();
@@ -74,7 +75,7 @@ const AddVisa = () => {
                             showConfirmButton: false,
                             timer: 2000,
                         }).then(() => {
-                            navigate('/allvisa'); 
+                            navigate('/allvisa');
                         });
                     }
                 });
@@ -92,6 +93,9 @@ const AddVisa = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Add Visa | Visarena</title>
+            </Helmet>
             <header>
                 <Navbar />
             </header>

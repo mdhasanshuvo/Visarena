@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Swal from 'sweetalert2';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const MyAddedVisa = () => {
     const loadedVisas = useLoaderData();
@@ -86,6 +87,10 @@ const MyAddedVisa = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>My Added Visa | Visarena</title>
+            </Helmet>
+
             <header>
                 <Navbar />
             </header>
