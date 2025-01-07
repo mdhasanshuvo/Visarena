@@ -11,16 +11,16 @@ const About = () => {
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
                         Unknown Wanderlust <br /> Your Journey into
                     </h2>
-                    <p className="text-sm md:text-lg mb-6 text-gray-600">
+                    <p className="text-sm md:text-lg mb-6 text-gray-500">
                         Visarena is here to help you navigate your travel dreams effortlessly. We simplify visa applications and
                         make the journey smoother from start to finish. From safety tips to passport assistance, we’ve got you covered.
                     </p>
                     <div className="flex flex-col items-center md:items-start gap-4">
-                        <div className="flex items-center text-gray-600">
+                        <div className="flex items-center text-gray-500">
                             <span className="mr-2 text-green-500">✔</span>
                             <span>Safety Guides</span>
                         </div>
-                        <div className="flex items-center text-gray-600">
+                        <div className="flex items-center text-gray-500">
                             <span className="mr-2 text-green-500">✔</span>
                             <span>Passport Assistance</span>
                         </div>

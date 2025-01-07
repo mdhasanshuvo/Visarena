@@ -98,7 +98,7 @@ const MyAddedVisa = () => {
             <main className="min-h-screen py-12 px-6 bg-base-300">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-primary">My Added Visas</h1>
-                    <p className="text-lg text-gray-600 mt-2">
+                    <p className="text-lg text-gray-500 mt-2">
                         View and manage the visas you have added
                     </p>
                 </div>

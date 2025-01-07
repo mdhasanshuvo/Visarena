@@ -33,7 +33,7 @@ const AllVisa = () => {
                     {/* Page Heading */}
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-primary">Explore Visas</h1>
-                        <p className="text-lg text-gray-600 mt-2">Find the right visa for your next journey.</p>
+                        <p className="text-lg text-gray-500 mt-2">Find the right visa for your next journey.</p>
                     </div>
 
                     {/* Filter Dropdown */}

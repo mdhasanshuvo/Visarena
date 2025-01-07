@@ -41,7 +41,7 @@ const Success = () => {
             ref={sectionRef}
             className="py-16 bg-gradient-to-r from-indigo-600 to-blue-500 text-white"
         >
-            <div className="container mx-auto max-w-7xl  px-6 text-center">
+            <div className="container mx-auto px-6 text-center">
                 <h2 className="text-4xl font-extrabold mb-8">Our Success Stories</h2>
                 <p className="text-lg md:text-xl mb-12">
                     Trusted by travelers worldwide, Visarena is committed to making your journeys seamless and successful.

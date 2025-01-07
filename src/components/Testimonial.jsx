@@ -33,7 +33,7 @@ const TestimonialSection = () => {
     <section className="bg-base-100 py-16 lg:py-40">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">What Our Users Say</h2>
-        <p className="text-lg text-gray-600 mb-12">
+        <p className="text-lg text-gray-500 mb-12">
           Discover how Visarena has helped travelers like you streamline their visa applications and make travel hassle-free.
         </p>
 
