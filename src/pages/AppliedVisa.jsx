@@ -9,7 +9,7 @@ import { Helmet } from 'react-helmet';
 const AppliedVisa = () => {
     const loadedVisas = useLoaderData();
     const [visas, setVisas] = useState(loadedVisas);
-    const [searchTerm, setSearchTerm] = useState(''); 
+    const [searchTerm, setSearchTerm] = useState('');
     const { user } = useContext(AuthContext);
 
     const handleDelete = (id) => {
@@ -80,66 +80,78 @@ const AppliedVisa = () => {
                     </button>
                 </div>
 
-                <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {visas
-                        .filter((visa) => visa.email === user.email)
-                        .map((visa) => (
-                            <div
-                                key={visa._id}
-                                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300"
-                            >
-                                {/* Image */}
-                                <img
-                                    src={visa.countryImage}
-                                    alt={visa.countryName}
-                                    className="w-full h-48 object-cover rounded-md"
-                                />
-
-                                {/* Visa Info */}
-                                <div className="mt-4">
-                                    <h2 className="text-xl font-bold text-gray-800">
-                                        {visa.countryName} Visa
-                                    </h2>
-                                    <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                                        <li>
-                                            <strong>Visa Type:</strong> {visa.visaType}
-                                        </li>
-                                        <li>
-                                            <strong>Processing Time:</strong> {visa.processingTime}
-                                        </li>
-                                        <li>
-                                            <strong>Fee:</strong> ${visa.fee}
-                                        </li>
-                                        <li>
-                                            <strong>Validity:</strong> {visa.validity}
-                                        </li>
-                                        <li>
-                                            <strong>Application Method:</strong> {visa.applicationMethod}
-                                        </li>
-                                        <li>
-                                            <strong>Applied Date:</strong> {visa.appliedDate}
-                                        </li>
-                                        <li>
-                                            <strong>Applicant Name:</strong> {visa.firstName} {visa.lastName}
-                                        </li>
-                                        <li>
-                                            <strong>Applicant Email:</strong> {visa.email}
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                {/* Delete Button */}
-                                <div className="mt-6">
-                                    <button
-                                        className="btn btn-error w-full text-white py-2 rounded-md"
-                                        onClick={() => handleDelete(visa._id)}
+                <div className="max-w-7xl mx-auto overflow-x-auto">
+                    <table className="table-auto w-full border-collapse border border-gray-300">
+                        <thead className="bg-gray-200 text-gray-700">
+                            <tr>
+                                <th className="border border-gray-300 px-4 py-2">#</th>
+                                <th className="border border-gray-300 px-4 py-2">Country</th>
+                                <th className="border border-gray-300 px-4 py-2">Visa Type</th>
+                                <th className="border border-gray-300 px-4 py-2">Processing Time</th>
+                                <th className="border border-gray-300 px-4 py-2">Fee</th>
+                                <th className="border border-gray-300 px-4 py-2">Validity</th>
+                                {/* <th className="border border-gray-300 px-4 py-2">Application Method</th> */}
+                                <th className="border border-gray-300 px-4 py-2">Applied Date</th>
+                                <th className="border border-gray-300 px-4 py-2">Applicant Name</th>
+                                {/* <th className="border border-gray-300 px-4 py-2">Applicant Email</th> */}
+                                <th className="border border-gray-300 px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {visas
+                                .filter((visa) => visa.email === user.email)
+                                .map((visa, index) => (
+                                    <tr
+                                        key={visa._id}
+                                        className="hover:bg-gray-100 transition-colors duration-200"
                                     >
-                                        Delete Application
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
+                                        <td className="border border-gray-300 px-4 py-2 text-center">
+                                            {index + 1}
+                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2 flex items-center">
+                                            <img
+                                                src={visa.countryImage}
+                                                alt={visa.countryName}
+                                                className="w-12 h-12 object-cover rounded-full mr-3"
+                                            />
+                                            {visa.countryName}
+                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">
+                                            {visa.visaType}
+                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">
+                                            {visa.processingTime}
+                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">${visa.fee}</td>
+                                        <td className="border border-gray-300 px-4 py-2">
+                                            {visa.validity}
+                                        </td>
+                                        {/* <td className="border border-gray-300 px-4 py-2">
+                                            {visa.applicationMethod}
+                                        </td> */}
+                                        <td className="border border-gray-300 px-4 py-2">
+                                            {visa.appliedDate}
+                                        </td>
+                                        <td className="border border-gray-300 px-4 py-2">
+                                            {visa.firstName} {visa.lastName}
+                                        </td>
+                                        {/* <td className="border border-gray-300 px-4 py-2">
+                                            {visa.email}
+                                        </td> */}
+                                        <td className="border border-gray-300 px-4 py-2 text-center">
+                                            <button
+                                                className="btn btn-error btn-sm w-full"
+                                                onClick={() => handleDelete(visa._id)}
+                                            >
+                                                Delete Application
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                        </tbody>
+                    </table>
                 </div>
+
             </main>
 
             <footer>
