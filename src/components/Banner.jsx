@@ -45,7 +45,7 @@ const Banner = () => {
                         <img
                             src={slide.img}
                             alt={slide.title}
-                            className="w-full h-[70vh] object-cover"
+                            className="w-full h-[65vh] object-cover"
                         />
                         <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center p-8 text-center space-y-4">
                             <h1 className="text-4xl md:text-6xl font-bold text-white">{slide.title}</h1>
