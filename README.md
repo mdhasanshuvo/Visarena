@@ -62,3 +62,19 @@ The purpose of **Visarena** is to simplify the visa process by providing users w
 - React Simple Typewriter: For dynamic text animations on the homepage.
 - React: For lightweight, engaging vector animations.
 - React Tooltip: For interactive and informative tooltips on hover actions.
+
+
+## 🏃 How to Run Locally
+
+### Prerequisites
+Ensure you have the following installed on your system:
+- **Node.js** (v14+ recommended)
+- **npm** or **yarn**
+
+### Steps to Run Locally
+
+**Clone the Repository**  
+   Clone the project repository to your local machine:
+   ```bash
+   git clone https://github.com/mdhasanshuvo/Visarena.git
+   cd haven-hotel-and-suites
