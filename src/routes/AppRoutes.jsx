@@ -12,6 +12,7 @@ import VisaDetails from '../pages/VisaDetails';
 import AppliedVisa from '../pages/AppliedVisa';
 import PrivateRoute from './PrivateRoute';
 import AboutUs from '../pages/AboutUs';
+import ContactUs from '../pages/ContactUs';
 
 const AppRoutes = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const AppRoutes = createBrowserRouter([
   {
     path: '/about-us',
     element: <AboutUs></AboutUs>,
+  },
+  {
+    path: '/contact',
+    element: <ContactUs></ContactUs>
   },
   {
     path: '/allVisa/:id',

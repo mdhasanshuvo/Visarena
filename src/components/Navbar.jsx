@@ -20,11 +20,12 @@ const Navbar = () => {
             </>
         }
         <li><NavLink to='/about-us'>About Us</NavLink></li>
+        <li><NavLink to='/contact'>Contact</NavLink></li>
     </>
     const { pathname } = useLocation();
     return (
         <div className='sticky top-0 z-50 bg-base-100 '>
-            <div className={`${pathname === '/auth/login' || pathname === '/auth/register' ? 'h-36' : ''} container mx-auto px-4`}
+            <div className={`container mx-auto px-4`}
             >
                 <div className="navbar">
                     <div className="navbar-start">

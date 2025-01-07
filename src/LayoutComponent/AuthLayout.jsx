@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const AuthLayout = () => {
     return (
-        <div className="font-Poppins ">
+        <div className="font-Poppins">
             <header>
                 <Navbar></Navbar>
             </header>
