@@ -5,10 +5,12 @@ import Footer from "../components/Footer";
 const AuthLayout = () => {
     return (
         <div className="font-Poppins">
-            <header>
+            <div className='sticky top-0 z-50'>
                 <Navbar></Navbar>
-            </header>
-            <Outlet></Outlet>
+            </div>
+            <div className="mt-0 sm:mt-10">
+                <Outlet></Outlet>
+            </div>
             {/* footer section */}
             <footer>
                 <Footer className='bg-white'></Footer>

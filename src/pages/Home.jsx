@@ -26,35 +26,37 @@ const Home = () => {
                 <title>Home | Visarena</title>
             </Helmet>
             {/* header section */}
-            <header>
-                {
-                    user && (
-                        <h1
-                            className="text-center text-lg sm:text-2xl font-bold text-primary"
-                            style={{
-                                transition: 'color 0.3s ease',
-                            }}
-                        >
-                            <Typewriter
-                                words={[
-                                    `Hello, ${user.displayName}!!!`,
-                                    'Welcome to Visarena.',
-                                    'Explore visa options today!',
-                                ]}
-                                loop={0} // Only types each message once
-                                cursor
-                                cursorStyle="|"
-                                typeSpeed={70}
-                                deleteSpeed={50}
-                                delaySpeed={1500}
-                            />
-                        </h1>
-                    )
-                }
+            {/* <header> */}
+            {
+                user && (
+                    <h1
+                        className="text-center text-lg sm:text-2xl font-bold text-primary bg-base-100"
+                        style={{
+                            transition: 'color 0.3s ease',
+                        }}
+                    >
+                        <Typewriter
+                            words={[
+                                `Hello, ${user.displayName}!!!`,
+                                'Welcome to Visarena.',
+                                'Explore visa options today!',
+                            ]}
+                            loop={0} // Only types each message once
+                            cursor
+                            cursorStyle="|"
+                            typeSpeed={70}
+                            deleteSpeed={50}
+                            delaySpeed={1500}
+                        />
+                    </h1>
+                )
+            }
+            <div className='sticky top-0 z-50'>
                 <Navbar></Navbar>
+            </div>
 
-                <Banner></Banner>
-            </header>
+            <Banner></Banner>
+            {/* </header> */}
 
             <main>
                 <About></About>

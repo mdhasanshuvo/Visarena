@@ -24,7 +24,7 @@ const Navbar = () => {
     </>
     const { pathname } = useLocation();
     return (
-        <div className='sticky top-0 z-50 bg-base-100 '>
+        <div className='sticky top-0 z-50 bg-base-200 '>
             <div className={`container mx-auto px-4`}
             >
                 <div className="navbar">

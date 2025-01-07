@@ -11,9 +11,9 @@ const ContactUs = () => {
       </Helmet>
 
 
-      <header>
+      <div className='sticky top-0 z-50'>
         <Navbar></Navbar>
-      </header>
+      </div>
 
       {/* Hero Section */}
       <section className="relative">

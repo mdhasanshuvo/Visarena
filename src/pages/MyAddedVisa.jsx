@@ -91,11 +91,11 @@ const MyAddedVisa = () => {
                 <title>My Added Visa | Visarena</title>
             </Helmet>
 
-            <header>
+            <header className='sticky top-0 z-50 '>
                 <Navbar />
             </header>
 
-            <main className="min-h-screen py-12 px-6 bg-base-200">
+            <main className="min-h-screen py-12 px-6 bg-base-300">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-primary">My Added Visas</h1>
                     <p className="text-lg text-gray-600 mt-2">

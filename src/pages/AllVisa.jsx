@@ -24,11 +24,11 @@ const AllVisa = () => {
             <Helmet>
                 <title>All Visa | Visarena</title>
             </Helmet>
-            <header>
-                <Navbar />
-            </header>
+            <div className='sticky top-0 z-50'>
+                <Navbar></Navbar>
+            </div>
 
-            <div className="min-h-screen bg-gradient-to-b bg-base-200 via-white to-gray-100 py-12">
+            <div className="min-h-screen bg-gradient-to-b bg-base-300 via-white to-gray-100 py-12">
                 <div className="container mx-auto px-4">
                     {/* Page Heading */}
                     <div className="text-center mb-12">

@@ -12,9 +12,9 @@ const AboutUs = () => {
                 <title>About Us | Visarena</title>
             </Helmet>
 
-            <header>
+            <div className='sticky top-0 z-50'>
                 <Navbar></Navbar>
-            </header>
+            </div>
 
             <div className="max-w-screen-xl mx-auto px-6 sm:px-8 py-12">
 
