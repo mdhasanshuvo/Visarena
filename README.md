@@ -1,80 +1,84 @@
-# Visarena: Visa Navigator Portal
+# 🌍 Visarena: Your Visa Navigator Portal ✈️
 
-**Visarena** is a modern and user-friendly web application designed to streamline the visa application process. From checking visa requirements to applying and tracking your applications, Visarena offers a comprehensive solution for navigating the complexities of international travel.
-
-## Purpose
-
-The purpose of **Visarena** is to simplify the visa process by providing users with a centralized platform for managing visa applications. Whether you're applying for the first time or tracking your existing applications, Visarena ensures a seamless experience.
-
-## Live URL
-🔗 [Visit Visarena](https://visarena-auth.web.app/)
+**Visarena** is a modern, user-friendly web application designed to simplify the visa application process. Whether you're checking requirements, applying, or tracking your applications, Visarena provides a seamless solution for navigating international travel complexities.
 
 ---
 
-## Key Features
+## 🎯 Purpose
 
-- **User Authentication**: Secure login and signup functionality powered by Firebase.
-- **Dynamic Visa Management**: Users can add, update, and delete visas and view their applications.
-- **Responsive Design**: Fully optimized for devices of all sizes, with light and dark mode themes for user comfort.
-- **Interactive Animations**: Engaging animations and visual feedback using libraries like Lottie, React Awesome Reveal, and more.
-- **Custom Notifications**: Alert users of important actions such as successful updates or errors.
-- **Protected Routes**: Ensures data security by restricting access to user-specific pages like “My Added Visas.”
-- **User Dashboard**: Personal dashboard to track all user-added visas and manage them easily.
+The purpose of **Visarena** is to streamline the visa process by offering users a centralized platform to manage their applications. From first-time applications to tracking progress, Visarena ensures a hassle-free experience.
 
 ---
 
-## Pages and Navigation
-
-- **Home Page:**
-  - An engaging introduction to the platform with animations.
-  - Provides easy navigation links to explore features.
-
-- **All Visa Page:**
-  - Displays all publicly available visa types.
-  - Dynamic, card-based design for easy browsing.
-
-- **My Added Visas Page:**
-  - Displays only visas added by the logged-in user.
-  - Includes options to update or delete individual visas.
-
-- **Add Visa Page:**
-  - Form-based interface for users to add new visa details.
-  - Ensures robust validation for form inputs.
-
-- **Applied Visas Page:**
-  - Lists visas the user has applied for with detailed status updates.
-
-- **Update Visa Modal:**
-  - Allows users to quickly update visa details through an interactive modal.
-
-- **404 Error Page:**
-  - Custom-designed error page for invalid routes with a “Back to Home” button.
+## 🌐 Live URL  
+🔗 **[Visit Visarena](https://visarena-auth.web.app/)**  
 
 ---
 
-## Technologies & NPM Packages Used
+## ✨ Key Features
 
-```bash
-- React Router: For routing and navigation.
-- Tailwind CSS & DaisyUI: For a modern and consistent UI design.
-- Firebase Authentication: For secure user login and registration.
-- MongoDB: Backend integration for dynamic visa management.
-- React Simple Typewriter: For dynamic text animations on the homepage.
-- React: For lightweight, engaging vector animations.
-- React Tooltip: For interactive and informative tooltips on hover actions.
+- 🔒 **User Authentication**: Secure login and signup powered by Firebase.  
+- 📑 **Dynamic Visa Management**: Add, update, delete, and track visa applications.  
+- 📱 **Responsive Design**: Optimized for all devices, with light and dark modes.  
+- 🎥 **Interactive Animations**: Engaging visuals using Lottie, React Awesome Reveal, and more.  
+- 🔔 **Custom Notifications**: Alerts for updates, errors, and actions.  
+- 🔐 **Protected Routes**: Secure access to user-specific pages like “My Added Visas.”  
+- 📊 **User Dashboard**: Manage and track all user-added visas with ease.  
 
+---
 
-## 🏃 How to Run Locally
+## 🗺️ Pages and Navigation
 
-### Prerequisites
-Ensure you have the following installed on your system:
-- **Node.js** (v14+ recommended)
-- **npm** or **yarn**
+- **🏠 Home Page**:  
+  - Dynamic animations and a welcoming introduction.  
+  - Easy navigation to explore features.  
 
-### Steps to Run Locally
+- **📋 All Visa Page**:  
+  - Browse all publicly available visa types.  
+  - Card-based design for quick access.  
 
-**Clone the Repository**  
-   Clone the project repository to your local machine:
+- **🙋‍♂️ My Added Visas Page**:  
+  - Personalized list of visas added by the user.  
+  - Update or delete visas directly.  
+
+- **➕ Add Visa Page**:  
+  - Intuitive form for adding new visas.  
+  - Includes robust validation for inputs.  
+
+- **📂 Applied Visas Page**:  
+  - Tracks visas the user has applied for with real-time updates.  
+
+- **✏️ Update Visa Modal**:  
+  - Quickly update visa details through a sleek modal interface.  
+
+- **🚫 404 Error Page**:  
+  - A custom-designed error page with a “Back to Home” button.  
+
+---
+
+## 🛠️ Technologies & NPM Packages Used
+
+- 🚀 **React Router**: For seamless routing and navigation.  
+- 🎨 **Tailwind CSS & DaisyUI**: For a modern, responsive, and accessible UI.  
+- 🔑 **Firebase Authentication**: For secure user login and registration.  
+- 🌍 **MongoDB**: Backend integration for managing dynamic visa data.  
+- ✨ **React Simple Typewriter**: For eye-catching dynamic text animations.  
+- 🎥 **React Lottie**: For lightweight and engaging vector animations.  
+- 💡 **React Tooltip**: For interactive and informative tooltips.  
+
+---
+
+## 🏃‍♂️ How to Run Locally  
+
+### 🧰 Prerequisites  
+Make sure you have the following installed:  
+- 🖥️ **Node.js** (v14+ recommended)  
+- 📦 **npm** or **yarn**  
+
+### 🛠️ Steps to Run Locally  
+
+**📥 Clone the Repository**  
+   Clone the project repository to your local machine:  
    ```bash
    git clone https://github.com/mdhasanshuvo/Visarena.git
-   cd haven-hotel-and-suites
+   cd Visarena
