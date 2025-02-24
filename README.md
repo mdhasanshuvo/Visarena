@@ -1,7 +1,8 @@
-
 # 🌍 **Visarena: Your Visa Navigator Portal** ✈️  
 
-**Visarena** is a modern, user-friendly web application designed to **simplify the visa application process**. Whether you're checking visa requirements, applying, or tracking your applications, **Visarena** offers a seamless solution for navigating international travel complexities.  
+![Visarena Screenshot Placeholder](https://i.ibb.co.com/pvVcX6tf/Banner.png)  
+
+**Visarena** is a modern, user-friendly web application designed to **simplify the visa application process**. Whether you're checking visa requirements, applying, or tracking applications, **Visarena** offers a seamless solution for navigating international travel complexities.  
 
 With **real-time visa tracking, user authentication, and dynamic data management**, **Visarena** ensures a hassle-free experience for global travelers.  
 
@@ -29,7 +30,7 @@ With **real-time visa tracking, user authentication, and dynamic data management
 
 ### 🔐 **Authentication & Security**  
 - **Firebase Authentication** – Secure login/signup with Google and email-based authentication.  
-- **Protected Routes** – Restricts access to personal visa management pages.  
+- **Protected Routes** – Private pages ensure only logged-in users access their visa data.  
 
 ### 📋 **Visa Management System**  
 - **Apply for visas** with an easy-to-use form.  
@@ -37,23 +38,44 @@ With **real-time visa tracking, user authentication, and dynamic data management
 - **Update or delete visas** in the user dashboard.  
 - **Admin controls** for managing visa listings (if applicable).  
 
-### 🎨 **User Experience Enhancements**  
-- **Dark & Light Mode** – Provides an adaptable user experience.  
-- **Interactive Animations** – Engaging Lottie animations for seamless interactions.  
-- **Custom Notifications** – Alerts for updates, errors, and application progress.  
-
 ### 🛠 **Dashboard & Navigation**  
 - **🏠 Home Page** – Engaging introduction, quick navigation, and feature highlights.  
 - **📋 All Visa Page** – Browse available visas in a clean, card-based UI.  
 - **🙋‍♂️ My Added Visas** – Track personal visa applications with edit/delete functionality.  
 - **➕ Add Visa Page** – Submit a new visa application with validation.  
-- **📂 Applied Visas** – View and track your submitted visa applications.  
+- **📂 Applied Visas** – View and track submitted visa applications in a **table view**.  
 - **✏️ Update Visa Modal** – Quickly update visa details via a sleek pop-up form.  
+- **🗑️ Delete Visa Option** – Remove visas permanently with confirmation alerts.  
 - **🚫 404 Page** – Custom error page with a **"Back to Home"** button.  
+
+### 📜 **Additional Features**  
+✅ **📄 About Page** – Provides more details about the platform and its purpose.  
+✅ **📞 Contact Page** – Allows users to reach out for visa-related queries.  
+✅ **📊 Table View** – For better visibility of **My Added Visas** and **My Visa Applications**.  
 
 ---
 
-## 🛠️ **Technology Stack**  
+## 📸 **Screenshots**  
+
+### 🏠 Home Page  
+![Home Page Screenshot](https://i.ibb.co.com/4RjBnGP3/Home.png)  
+
+### 📋 All Visa Listings  
+![Visa Listings Screenshot](https://i.ibb.co.com/PKG0Njb/All-Visa.png)  
+
+### 🔐 Authentication (Login & Register)  
+![Login Screenshot](https://i.ibb.co.com/RTfQbp9Z/Login.png)  
+
+### 🛠️ Dashboard 
+![Added visa Screenshot](https://i.ibb.co.com/ynbHZ97Z/my-added-visa.png)  
+![Applied visa Screenshot](https://i.ibb.co.com/4R1qZGkG/my-applied-visa.png)  
+
+### 📋 About Us Page 
+![About Us Page Screenshot](https://i.ibb.co.com/rKyzqSss/About.png)  
+
+---
+
+## 🛠 **Technology Stack**  
 
 | Layer         | Technology |
 |--------------|-----------|
@@ -134,7 +156,7 @@ If you encounter any issues:
 - 📄 Ensure **environment variables** are correctly configured.  
 - 🔄 Run `npm audit fix` to resolve package dependency issues.  
 - 🔌 Ensure MongoDB is running and properly connected.  
-- 📩 Reach out for support via **[GitHub Issues](#)**.  
+- 📩 Reach out for support via **[GitHub Issues](https://github.com/mdhasanshuvo/Visarena/issues)**.  
 
 ---
 
